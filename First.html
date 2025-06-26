@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aishwary's First Website</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("0A_TqswHY4YALxoDE"); // your Public Key
+
+    function sendResponse(answer) {
+      emailjs.send("service_ffbsz16", "template_fdh6dqf", {
+        name: "Website Visitor",
+        title: "Feedback",
+        message: `User clicked: ${answer}`,
+        email: "totalgaminglite1999@gmail.com"
+      })
+      .then(function() {
+        alert("Thanks for your feedback!");
+      }, function(error) {
+        alert("Oops something went wrong: " + JSON.stringify(error));
+      });
+    }
+  </script>
+  <style>
+    body {
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    .btn {
+      padding: 15px 30px;
+      font-size: 1em;
+      margin: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+    .yes { background: #48bb78; }
+    .no { background: #f56565; }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <h1>This is Aishwary's first website</h1>
+  <p>Do you like it?</p>
+  <button class="btn yes" onclick="sendResponse('Yes')">Yes</button>
+  <button class="btn no" onclick="sendResponse('No')">No</button>
+</body>
+</html>
